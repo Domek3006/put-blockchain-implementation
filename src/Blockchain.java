@@ -45,6 +45,10 @@ public class Blockchain implements Serializable {
 
     // Add a new block to the blockchain
     public void addBlock(String senderId, String receiverId, double amount) {
+        if(senderBalances.get(senderId) - amount < 0) {
+            System.out.println("Insufficient funds");
+            return;
+        }
         Block latestBlock = getLatestBlock();
         int newIndex = latestBlock.getIndex() + 1;
         String newPreviousHash = latestBlock.getHash();

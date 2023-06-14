@@ -120,6 +120,7 @@ public class Block implements Serializable {
         numOfTransactions++;
     }
 
+    // Mine a new block
     public void mineBlock(int difficulty) {
         hash = StringUtils.leftPad("-", difficulty, "-");
         String target = StringUtils.leftPad("0", difficulty, "0");
