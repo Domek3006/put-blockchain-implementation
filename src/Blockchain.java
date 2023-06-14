@@ -53,8 +53,10 @@ public class Blockchain implements Serializable {
         this.chain.add(newBlock);
 
         // Update sender balances
-        //senderBalances.put(senderId, senderBalances.get(senderId) - amount);
-        //senderBalances.put(receiverId, senderBalances.get(receiverId) + amount);
+        senderBalances.put(senderId, senderBalances.get(senderId) - amount);
+        senderBalances.put(receiverId, senderBalances.get(receiverId) + amount);
+        System.out.println(senderId + ": " + senderBalances.get(senderId));
+        System.out.println(receiverId + ": " + senderBalances.get(receiverId));
     }
 
     // Validate the integrity of the blockchain
